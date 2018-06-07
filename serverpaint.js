@@ -11,6 +11,27 @@ app.get('/', function (req, res) {
 
 
 //demarre le serveur web sur le port 3000
-app.listen(3000, function () {
+let server = app.listen(3000,'192.168.1.61', function () {
     console.log('Paint app listening on port 3000!');
+})
+
+const io = require('socket.io')(server)
+io.on('connection', (socket) => {
+    console.log('New user connected')
+    //socket.username = 'Anonymous'
+    
+    socket.on('mouse_draw', (data) => {
+        socket.mouse = data
+        //console.log(socket.mouse)
+        io.sockets.emit('draw_all',{
+            alldraw: socket.mouse
+        })
+    })
+    
+    socket.on('reset', (data) => {
+        //console.log(data)
+        io.sockets.emit('clearcanvas',{
+            message: "clear"
+        })
+    })
 })
