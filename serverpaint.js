@@ -11,11 +11,7 @@ app.get('/', function (req, res) {
 
 
 //demarre le serveur web sur le port 3000
-<<<<<<< HEAD
-let server = app.listen(3000, function () {
-=======
 let server = app.listen(3000,'192.168.1.118', function () {
->>>>>>> 5b0a219849796370c83465d5ec71b0dd80e09c8e
     console.log('Paint app listening on port 3000!');
 })
 

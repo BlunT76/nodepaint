@@ -1,18 +1,12 @@
 //(function () {
 
 var sendReset = document.getElementById("reset");
-<<<<<<< HEAD
-var socket = io() //.connect('http://localhost:3000')
-=======
 var socket = io().connect()
->>>>>>> 5b0a219849796370c83465d5ec71b0dd80e09c8e
 var userdraw = {};
 //var sendReset;
 var usercolor_input = document.getElementById('user_color');
 var usercolor = usercolor_input.value;
 
-<<<<<<< HEAD
-=======
 // var circle
 var circle = document.getElementById('circle');
 var square = document.getElementById('square');
@@ -22,8 +16,6 @@ var big_star = document.getElementById('big_star');
 var small_star = document.getElementById('small_star');
 var shape = "line";
 
->>>>>>> 5b0a219849796370c83465d5ec71b0dd80e09c8e
-
 function setup() {
     createCanvas(710, 400);
     background(102);
@@ -32,10 +24,6 @@ function setup() {
 
 function draw() {
     stroke(255);
-<<<<<<< HEAD
-=======
-
->>>>>>> 5b0a219849796370c83465d5ec71b0dd80e09c8e
     if (mouseIsPressed === true) {
         //line(mouseX, mouseY, pmouseX, pmouseY);
         //console.log(mouseX,mouseY)
@@ -46,10 +34,6 @@ function draw() {
             pmX: pmouseX,
             pmY: pmouseY,
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 5b0a219849796370c83465d5ec71b0dd80e09c8e
         //if (userdraw.mX != userdraw.pmX && userdraw.mY != userdraw.pmY) {
             socket.emit('mouse_draw', userdraw)
         //}
@@ -58,11 +42,7 @@ function draw() {
     }
     socket.on('draw_all', function (data) {
         //console.log(data.alldraw.mX);
-<<<<<<< HEAD
-        stroke(data.alldraw.usercolor);
-        line(data.alldraw.mX, data.alldraw.mY, data.alldraw.pmX, data.alldraw.pmY)
-=======
-        
+     
         switch(shape) {
             case 'line' : stroke(data.alldraw.usercolor);
                             line(data.alldraw.mX, data.alldraw.mY, data.alldraw.pmX, data.alldraw.pmY);
@@ -102,7 +82,6 @@ function draw() {
 
         }
 
->>>>>>> 5b0a219849796370c83465d5ec71b0dd80e09c8e
     })
 
     socket.on('clearcanvas', function () {
@@ -124,8 +103,6 @@ usercolor_input.addEventListener("input", function() {
 
     }, false);
 
-<<<<<<< HEAD
-=======
 // shapes
 circle.addEventListener('click', function (event){
     shape="circle";
@@ -170,8 +147,6 @@ function star(x, y, radius1, radius2, npoints) {
   endShape(CLOSE);
 }
 
-
->>>>>>> 5b0a219849796370c83465d5ec71b0dd80e09c8e
 //setup();
 //draw();
 
