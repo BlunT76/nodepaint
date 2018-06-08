@@ -65,10 +65,13 @@ function draw() {
                             ellipse(data.alldraw.mX, data.alldraw.mY, 50, 30);
                             break;
 
-            case 'tri': noStroke();
+            case 'tri': noStroke(); // Pythagore et centre de gravité du triangle #Kappapride
                             fill(data.alldraw.usercolor);
-                            triangle(data.alldraw.mX, data.alldraw.mY+Math.sqrt(675)*2/3,data.alldraw.mX-15, data.alldraw.mY-10,data.alldraw.mX+15, data.alldraw.mY-10);
+                            triangle(data.alldraw.mX, data.alldraw.mY+Math.sqrt(675)*2/3,
+                            		data.alldraw.mX-15, data.alldraw.mY-Math.sqrt(675)/3,
+                            		data.alldraw.mX+15, data.alldraw.mY-Math.sqrt(675)/3);
                             break;
+
 
             case 'big_star' :
                             noStroke();
