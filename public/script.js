@@ -1,6 +1,7 @@
 //(function () {
 
 var sendReset = document.getElementById("reset");
+
 var socket = io().connect()
 var userdraw = {};
 //var sendReset;
@@ -15,7 +16,6 @@ var tri = document.getElementById('tri');
 var big_star = document.getElementById('big_star');
 var small_star = document.getElementById('small_star');
 var shape = "line";
-
 function setup() {
     createCanvas(710, 400);
     background(102);
@@ -24,6 +24,7 @@ function setup() {
 
 function draw() {
     stroke(255);
+
     if (mouseIsPressed === true) {
         //line(mouseX, mouseY, pmouseX, pmouseY);
         //console.log(mouseX,mouseY)
@@ -34,6 +35,7 @@ function draw() {
             pmX: pmouseX,
             pmY: pmouseY,
         }
+
         //if (userdraw.mX != userdraw.pmX && userdraw.mY != userdraw.pmY) {
             socket.emit('mouse_draw', userdraw)
         //}
@@ -42,7 +44,7 @@ function draw() {
     }
     socket.on('draw_all', function (data) {
         //console.log(data.alldraw.mX);
-     
+
         switch(shape) {
             case 'line' : stroke(data.alldraw.usercolor);
                             line(data.alldraw.mX, data.alldraw.mY, data.alldraw.pmX, data.alldraw.pmY);
