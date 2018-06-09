@@ -57,7 +57,7 @@ function draw() {
 
             case 'square' : noStroke();
                             fill(data.alldraw.usercolor);
-                            rect(data.alldraw.mX, data.alldraw.mY, 40, 40);
+                            rect(data.alldraw.mX-20, data.alldraw.mY-20, 40, 40);
                             break;
 
             case 'ovale': noStroke();
