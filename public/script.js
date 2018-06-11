@@ -38,6 +38,7 @@ function draw() {
 
         //if (userdraw.mX != userdraw.pmX && userdraw.mY != userdraw.pmY) {
             socket.emit('mouse_draw', userdraw)
+
         //}
         //console.log(userdraw)
 
